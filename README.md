@@ -25,9 +25,8 @@ LINE Messaging APIやGemini APIとの連携、画像処理、データベース�
 ├── db.py
 ├── requirements.txt
 ├── runtime.txt
-├── README.md
-├── .renderignore
-└── .dockerignore
+└── README.md
+
 ```
 
 ## サービス構成図
