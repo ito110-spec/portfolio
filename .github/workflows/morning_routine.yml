@@ -1,0 +1,50 @@
+# ===============================
+# GitHub Actions ワークフロー
+# JST 08:00〜08:45 の間でランダムな時刻に
+# Render の /cron を2回実行（5分間隔）
+# ===============================
+
+name: Morning Cron Ping (Random + Twice)
+
+on:
+  schedule:
+    # JST 08:00 = UTC 23:00 前日
+    - cron: "0 23 * * 1-5"
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  morning-cron:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait random time (0–45 minutes)
+        run: |
+          # 最大45分 (2700秒) のランダム待機
+          delay=$((RANDOM % 2700))
+          echo "⏳ Waiting $delay seconds (~$((delay / 60)) minutes) before first ping..."
+          sleep $delay
+
+      - name: Ping Render /cron endpoint (1回目)
+        run: |
+          TARGET_URL="https://line-bot-1-rsyx.onrender.com/cron"
+
+          echo "⏳ First ping to $TARGET_URL at $(date '+%Y-%m-%d %H:%M:%S %Z')..."
+          curl -fsS --max-time 10 "$TARGET_URL" && \
+            echo "✅ First ping successful" || echo "⚠️ First ping failed"
+
+      - name: Wait 5 minutes before second ping
+        run: |
+          echo "⏳ Waiting 300 seconds (5 minutes) before second ping..."
+          sleep 300
+
+      - name: Ping Render /cron endpoint (2回目)
+        run: |
+          TARGET_URL="https://line-bot-1-rsyx.onrender.com/cron"
+
+          echo "⏳ Second ping to $TARGET_URL at $(date '+%Y-%m-%d %H:%M:%S %Z')..."
+          curl -fsS --max-time 10 "$TARGET_URL" && \
+            echo "✅ Second ping successful" || echo "⚠️ Second ping failed"
+
+      - name: Complete
+        run: |
+          echo "✅ Morning cron pings completed successfully"
