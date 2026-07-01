@@ -96,14 +96,12 @@ Flask（Render）
 
 ## スクリーンショット
 
-![毎朝自動配信](画像/毎朝自動送信.jpg)
-
-![画像共有](画像/写真保存&ランダム写真.jpg)
-
-![猫GIF](画像/猫動画.jpg)
-
-![Gemini API連携](画像/アニメ検索.jpg)
-
+<p align="center">
+  <img src="画像/毎朝自動送信.jpg" width="24%">
+  <img src="画像/写真保存&ランダム写真.jpg" width="24%">
+  <img src="画像/猫動画.jpg" width="24%">
+  <img src="画像/アニメ検索.jpg" width="24%">
+</p>
 ---
 
 ## 工夫・試行錯誤した点
