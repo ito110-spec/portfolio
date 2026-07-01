@@ -96,13 +96,13 @@ Flask（Render）
 
 ## スクリーンショット
 
-![毎朝自動配信](portfolio/画像/毎朝自動送信.jpg)
+![毎朝自動配信](画像/毎朝自動送信.jpg)
 
-![画像共有](portfolio/画像/写真保存&ランダム写真.jpg)
+![画像共有](画像/写真保存&ランダム写真.jpg)
 
-![猫GIF](portfolio/画像/猫動画.jpg)
+![猫GIF](画像/猫動画.jpg)
 
-![Gemini API連携](portfolio/画像/アニメ検索.jpg)
+![Gemini API連携](画像/アニメ検索.jpg)
 
 ---
 
